@@ -95,7 +95,7 @@ module LinkedIn
       options = parse_id(id, options)
       path = "#{profile_path(options, false)}/skills"
       get(path, options)
-    end     
+    end
 
 
     protected ############################################################
@@ -120,8 +120,8 @@ module LinkedIn
         end
       elsif id.is_a? Hash
         options = id
-      else
-        options = {}
+      # else
+      #   options = {}
       end
 
       return options
