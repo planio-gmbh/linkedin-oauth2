@@ -20,6 +20,11 @@ module LinkedIn
       get(path, options)
     end
 
+    # TODO LIv2 Cleanup. Used to be "showcase pages"
+    def organization_brand(id)
+      get("/organizationBrands/#{id}")
+    end
+
     # Retrieve a Company Profile
     #
     # @see http://developer.linkedin.com/documents/company-lookup-api-and-fields

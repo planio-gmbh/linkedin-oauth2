@@ -94,19 +94,18 @@ module LinkedIn
     def generate_field_selectors(options)
       default = LinkedIn.config.default_profile_fields || {}
       fields = options.delete(:fields) || default
-
       if options.delete(:public)
         return ":public"
       elsif fields.empty?
         return ""
       else
-        return ":(#{build_fields_params(fields)})"
+        return "?projection=(#{fields})"
       end
     end
 
     def build_fields_params(fields)
       if fields.is_a?(Hash) && !fields.empty?
-        fields.map {|i,v| "#{i}:(#{build_fields_params(v)})" }.join(',')
+        fields.map {|v| "(#{build_fields_params(v)})" }.join(',')
       elsif fields.respond_to?(:each)
         fields.map {|field| build_fields_params(field) }.join(',')
       else

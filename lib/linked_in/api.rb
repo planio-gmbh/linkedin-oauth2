@@ -47,7 +47,8 @@ module LinkedIn
                                 :company_historical_status_update_statistics,
                                 :company_updates_likes,
                                 :company_updates_comments,
-                                :organization_acls
+                                :organization_acls,
+                                :organization_brand
 
     def_delegators :@communications, :send_message
 
